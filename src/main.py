@@ -17,7 +17,13 @@ if __name__ == '__main__':
         'num_users': 100,
         'epochs': 10,
         'num_channels': 1,
-        'num_classes': 10
+        'num_classes': 10,
+        'lr': 0.01,
+        'local_bs': 10,
+        'local_ep': 10,
+        'gpu': None,
+        'optimizer': 'sgd',
+        'verbose': 1
     }
 
     path_project = os.path.abspath('..')
