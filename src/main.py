@@ -18,7 +18,7 @@ if __name__ == '__main__':
         'epochs': 10,
         'num_channels': 1,
         'num_classes': 10
-    } #TODO
+    }
 
     path_project = os.path.abspath('..')
     logger = SummaryWriter('../logs')
@@ -40,12 +40,12 @@ if __name__ == '__main__':
     print_every = 2
     val_loss_pre, counter = 0, 0
 
-    for epoch in tqdm(range(args.epochs)):
+    for epoch in tqdm(range(args['epochs'])):
         local_weights, local_losses = [], []
         print(f'\n | Global training round: {epoch+1} | \n')
         global_model.train()
-        m = max(int(args.frac * args.num_users), 1)
-        idxs_users = np.random.choice(range(args.num_users), m, replace=False)
+        m = max(int(args['frac'] * args['num_users']), 1)
+        idxs_users = np.random.choice(range(args['num_users']), m, replace=False)
 
         for idx in idxs_users:
             local_model = LocalUpdate(args=args, dataset=train_dataset, idxs=user_groups[idx], logger=logger)
@@ -61,7 +61,7 @@ if __name__ == '__main__':
 
         list_acc, list_loss = [], []
         global_model.eval()
-        for c in range(args.num_users):
+        for c in range(args['num_users']):
             local_model = LocalUpdate(args=args, dataset=train_dataset, idxs=user_groups[idx], logger=logger)
             acc, loss = local_model.inference(model=global_model)
             list_acc.append(acc)

@@ -18,6 +18,6 @@ def get_dataset(args):
                                   download=True,
                                   transforms=apply_transform)
 
-    user_groups = mnist_noniid_unequal(train_dataset, args.num_users)
+    user_groups = mnist_noniid_unequal(train_dataset, args['num_users'])
 
     return train_dataset, test_dataset, user_groups
