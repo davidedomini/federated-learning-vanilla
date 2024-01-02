@@ -11,12 +11,12 @@ def get_dataset(args):
     train_dataset = datasets.MNIST(data_dir,
                                    train=True,
                                    download=True,
-                                   transforms=apply_transform)
+                                   transform=apply_transform)
 
     test_dataset = datasets.MNIST(data_dir,
                                   train=False,
                                   download=True,
-                                  transforms=apply_transform)
+                                  transform=apply_transform)
 
     user_groups = mnist_noniid_unequal(train_dataset, args['num_users'])
 
