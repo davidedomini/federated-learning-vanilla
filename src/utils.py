@@ -4,7 +4,7 @@ from torchvision import datasets, transforms
 from sampling import mnist_noniid_unequal
 
 
-def get_dataset(name, num_users):
+def get_dataset(args):
     data_dir = '../data/mnist/'
     apply_transform = transforms.ToTensor()
 
@@ -18,6 +18,6 @@ def get_dataset(name, num_users):
                                   download=True,
                                   transforms=apply_transform)
 
-    user_groups = mnist_noniid_unequal(train_dataset, num_users)
+    user_groups = mnist_noniid_unequal(train_dataset, args.num_users)
 
     return train_dataset, test_dataset, user_groups
