@@ -79,3 +79,8 @@ if __name__ == '__main__':
             print(f' \nAvg Training Stats after {epoch + 1} global rounds:')
             print(f'Training Loss : {np.mean(np.array(train_loss))}')
             print('Train Accuracy: {:.2f}% \n'.format(100 * train_accuracy[-1]))
+
+    test_acc, test_loss = test_inference(args, global_model, test_dataset)
+    print(f' \n Results after {args["epochs"]} global rounds of training:')
+    print("|---- Avg Train Accuracy: {:.2f}%".format(100 * train_accuracy[-1]))
+    print("|---- Test Accuracy: {:.2f}%".format(100 * test_acc))
