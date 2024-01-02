@@ -1,5 +1,5 @@
 from torch import nn
-import nn.functional as F
+import torch.nn.functional as F
 
 class CNNMnist(nn.Module):
 
